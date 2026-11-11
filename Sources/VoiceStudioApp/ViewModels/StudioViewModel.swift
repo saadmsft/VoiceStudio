@@ -79,7 +79,35 @@ public final class StudioViewModel: ObservableObject {
     private let outputUIDKey = "VoiceStudio.SelectedOutputUID.v1"
     private let monitorUIDKey = "VoiceStudio.SelectedMonitorUID.v1"
 
-    public init() {
+    private var isPreviewInstance: Bool = false
+
+    public init(screenshotPreviewMode: Bool = false) {
+        self.isPreviewInstance = screenshotPreviewMode
+        if screenshotPreviewMode {
+            inputDevices = [
+                AudioDeviceInfo(id: 101, uid: "usb-mic", name: "USB Studio Condenser Mic", manufacturer: "Audio", inputChannels: 2, outputChannels: 0, sampleRate: 48000, isVirtual: false),
+                AudioDeviceInfo(id: 102, uid: "mbp-mic", name: "MacBook Pro Microphone", manufacturer: "Apple", inputChannels: 1, outputChannels: 0, sampleRate: 48000, isVirtual: false)
+            ]
+            outputDevices = [
+                AudioDeviceInfo(id: 201, uid: "BlackHole2ch_UID", name: "BlackHole 2ch", manufacturer: "Existential Audio", inputChannels: 2, outputChannels: 2, sampleRate: 48000, isVirtual: true)
+            ]
+            monitorDevices = [
+                AudioDeviceInfo(id: 301, uid: "studio-hp", name: "Studio Headphones", manufacturer: "Apple", inputChannels: 0, outputChannels: 2, sampleRate: 48000, isVirtual: false),
+                AudioDeviceInfo(id: 302, uid: "mbp-spk", name: "MacBook Pro Speakers", manufacturer: "Apple", inputChannels: 0, outputChannels: 2, sampleRate: 48000, isVirtual: false)
+            ]
+            selectedInputID = 101
+            selectedOutputID = 201
+            selectedMonitorID = 301
+            isEngineRunning = true
+            micPermissionGranted = true
+            statusMessage = "ON AIR • Routing to BlackHole 2ch for Teams"
+            profile = .teamsCrispAndDeep
+            meters.inputMeterDb = -13.5
+            meters.gainReductionDb = 4.2
+            meters.outputMeterDb = -6.8
+            return
+        }
+
         loadSavedPresetsAndProfile()
         refreshDevices(preserveSelections: false)
 
@@ -355,6 +383,7 @@ public final class StudioViewModel: ObservableObject {
     }
 
     private func persistCurrentProfile() {
+        guard !isPreviewInstance else { return }
         if let data = try? JSONEncoder().encode(profile) {
             UserDefaults.standard.set(data, forKey: profileStorageKey)
         }

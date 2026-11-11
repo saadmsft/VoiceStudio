@@ -39,6 +39,9 @@ struct VoiceStudioApp: App {
     @StateObject private var viewModel = StudioViewModel()
 
     init() {
+        if ScreenshotExporter.runIfRequested() {
+            exit(0)
+        }
         NSApplication.shared.setActivationPolicy(.regular)
     }
 

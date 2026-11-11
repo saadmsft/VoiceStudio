@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0D14"/>
+      <stop offset="50%" stop-color="#111726"/>
+      <stop offset="100%" stop-color="#0B101B"/>
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FAAD38"/>
+      <stop offset="50%" stop-color="#38C7FA"/>
+      <stop offset="100%" stop-color="#2EDB8F"/>
+    </linearGradient>
+    <linearGradient id="barAmber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFC45C"/>
+      <stop offset="100%" stop-color="#F5881F"/>
+    </linearGradient>
+    <linearGradient id="barCyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5CE1FF"/>
+      <stop offset="100%" stop-color="#1B8FE8"/>
+    </linearGradient>
+    <radialGradient id="glowLeft" cx="22%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#FAAD38" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#FAAD38" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRight" cx="78%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#38C7FA" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#38C7FA" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer Card -->
+  <rect x="4" y="4" width="1192" height="332" rx="26" fill="url(#bgGrad)" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="2"/>
+  <rect x="4" y="4" width="1192" height="332" rx="26" fill="url(#glowLeft)"/>
+  <rect x="4" y="4" width="1192" height="332" rx="26" fill="url(#glowRight)"/>
+
+  <!-- Subtle Studio Acoustic Grid -->
+  <g stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1">
+    <line x1="40" y1="85" x2="1160" y2="85"/>
+    <line x1="40" y1="170" x2="1160" y2="170"/>
+    <line x1="40" y1="255" x2="1160" y2="255"/>
+    <line x1="260" y1="24" x2="260" y2="316"/>
+    <line x1="560" y1="24" x2="560" y2="316"/>
+    <line x1="880" y1="24" x2="880" y2="316"/>
+  </g>
+
+  <!-- Background Smooth EQ Curve -->
+  <path d="M 40 235 Q 160 130, 290 195 T 620 175 T 960 118 L 1160 105" fill="none" stroke="url(#waveGrad)" stroke-width="3" stroke-opacity="0.28"/>
+
+  <!-- App Squircle Logo Icon on Left -->
+  <g transform="translate(68, 82)">
+    <rect x="0" y="0" width="176" height="176" rx="40" fill="#12192B" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="2.5"/>
+    <g filter="url(#softGlow)">
+      <rect x="28" y="68" width="12" height="40" rx="6" fill="url(#barAmber)"/>
+      <rect x="48" y="50" width="12" height="76" rx="6" fill="url(#barAmber)"/>
+      <rect x="68" y="32" width="12" height="112" rx="6" fill="url(#barAmber)"/>
+      <rect x="88" y="46" width="12" height="84" rx="6" fill="url(#barCyan)"/>
+      <rect x="108" y="24" width="12" height="128" rx="6" fill="url(#barCyan)"/>
+      <rect x="128" y="44" width="12" height="88" rx="6" fill="url(#barCyan)"/>
+      <rect x="148" y="62" width="12" height="52" rx="6" fill="#2EDB8F"/>
+    </g>
+  </g>
+
+  <!-- ON AIR Pill -->
+  <g transform="translate(278, 72)">
+    <rect x="0" y="0" width="114" height="30" rx="15" fill="#2EDB8F" fill-opacity="0.16" stroke="#2EDB8F" stroke-opacity="0.6" stroke-width="1.2"/>
+    <circle cx="20" cy="15" r="5" fill="#2EDB8F"/>
+    <text x="34" y="20" fill="#2EDB8F" font-family="-apple-system, BlinkMacSystemFont, 'SF Mono', Menlo, monospace" font-size="13" font-weight="800" letter-spacing="1.2">ON AIR</text>
+  </g>
+
+  <!-- Latency & CPU Pill -->
+  <g transform="translate(404, 72)">
+    <rect x="0" y="0" width="236" height="30" rx="15" fill="#38C7FA" fill-opacity="0.12" stroke="#38C7FA" stroke-opacity="0.4" stroke-width="1.2"/>
+    <text x="16" y="20" fill="#7CE0FF" font-family="-apple-system, BlinkMacSystemFont, 'SF Mono', Menlo, monospace" font-size="12.5" font-weight="700">48 kHz DSP • 0.4% IDLE CPU</text>
+  </g>
+
+  <!-- Title & Tagline -->
+  <text x="278" y="156" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="-1">VoiceStudio</text>
+  <text x="602" y="156" fill="#38C7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600">for Microsoft Teams</text>
+
+  <text x="278" y="198" fill="#B2BDCE" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="19.5" font-weight="500">Turn any Mac mic into a crisp, warm, subtly deeper broadcast studio voice.</text>
+
+  <!-- Feature Pills -->
+  <g transform="translate(278, 226)" font-family="-apple-system, BlinkMacSystemFont, 'SF Mono', Menlo, monospace" font-size="12.5" font-weight="600">
+    <rect x="0" y="0" width="154" height="34" rx="9" fill="#182032" stroke="#FAAD38" stroke-opacity="0.45"/>
+    <text x="14" y="22" fill="#FFC45C">🎙️ -0.65 st Depth</text>
+
+    <rect x="166" y="0" width="170" height="34" rx="9" fill="#182032" stroke="#FAAD38" stroke-opacity="0.45"/>
+    <text x="180" y="22" fill="#FFC45C">🔥 Sub-Bass Warmth</text>
+
+    <rect x="348" y="0" width="166" height="34" rx="9" fill="#182032" stroke="#38C7FA" stroke-opacity="0.45"/>
+    <text x="362" y="22" fill="#6DDDFF">✨ 9.5k Studio Air</text>
+
+    <rect x="526" y="0" width="176" height="34" rx="9" fill="#182032" stroke="#2EDB8F" stroke-opacity="0.45"/>
+    <text x="540" y="22" fill="#58F0AA">⚡ BlackHole Ready</text>
+  </g>
+
+  <!-- Decorative Right-Side Broadcast VU Meter Cluster -->
+  <g transform="translate(1038, 66)">
+    <rect x="0" y="0" width="104" height="208" rx="14" fill="#121826" stroke="#FFFFFF" stroke-opacity="0.1"/>
+    <!-- IN Meter -->
+    <g transform="translate(18, 18)">
+      <rect x="0" y="0" width="14" height="10" rx="2" fill="#FF5765" fill-opacity="0.18"/>
+      <rect x="0" y="14" width="14" height="10" rx="2" fill="#FAAD38" fill-opacity="0.22"/>
+      <rect x="0" y="28" width="14" height="10" rx="2" fill="#FAAD38"/>
+      <rect x="0" y="42" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="56" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="70" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="84" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="98" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="112" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="126" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="140" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <text x="1" y="168" fill="#8C99B0" font-family="monospace" font-size="10" font-weight="700">IN</text>
+    </g>
+    <!-- GR Meter -->
+    <g transform="translate(45, 18)">
+      <rect x="0" y="0" width="14" height="10" rx="2" fill="#FAAD38"/>
+      <rect x="0" y="14" width="14" height="10" rx="2" fill="#FAAD38"/>
+      <rect x="0" y="28" width="14" height="10" rx="2" fill="#FAAD38"/>
+      <rect x="0" y="42" width="14" height="10" rx="2" fill="#FAAD38" fill-opacity="0.18"/>
+      <rect x="0" y="56" width="14" height="10" rx="2" fill="#FAAD38" fill-opacity="0.18"/>
+      <rect x="0" y="70" width="14" height="10" rx="2" fill="#FAAD38" fill-opacity="0.18"/>
+      <rect x="0" y="84" width="14" height="10" rx="2" fill="#FAAD38" fill-opacity="0.18"/>
+      <rect x="0" y="98" width="14" height="10" rx="2" fill="#FAAD38" fill-opacity="0.18"/>
+      <rect x="0" y="112" width="14" height="10" rx="2" fill="#FAAD38" fill-opacity="0.18"/>
+      <rect x="0" y="126" width="14" height="10" rx="2" fill="#FAAD38" fill-opacity="0.18"/>
+      <rect x="0" y="140" width="14" height="10" rx="2" fill="#FAAD38" fill-opacity="0.18"/>
+      <text x="0" y="168" fill="#8C99B0" font-family="monospace" font-size="10" font-weight="700">GR</text>
+    </g>
+    <!-- OUT Meter -->
+    <g transform="translate(72, 18)">
+      <rect x="0" y="0" width="14" height="10" rx="2" fill="#FF5765" fill-opacity="0.18"/>
+      <rect x="0" y="14" width="14" height="10" rx="2" fill="#FAAD38"/>
+      <rect x="0" y="28" width="14" height="10" rx="2" fill="#FAAD38"/>
+      <rect x="0" y="42" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="56" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="70" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="84" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="98" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="112" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="126" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <rect x="0" y="140" width="14" height="10" rx="2" fill="#2EDB8F"/>
+      <text x="-3" y="168" fill="#8C99B0" font-family="monospace" font-size="10" font-weight="700">OUT</text>
+    </g>
+  </g>
+</svg>
