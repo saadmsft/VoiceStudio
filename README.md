@@ -5,9 +5,9 @@
 <br />
 
 [![Download DMG](https://img.shields.io/github/v/release/saadmsft/VoiceStudio?style=for-the-badge&logo=apple&logoColor=white&label=Download%20Universal%20DMG&color=38C7FA)](https://github.com/saadmsft/VoiceStudio/releases/latest/download/VoiceStudio-1.0.0-macOS.dmg)
-[![macOS 13+](https://img.shields.io/badge/macOS_13%2B-Apple_Silicon_%26_Intel-141B29?style=for-the-badge&logo=macos&logoColor=white)](https://github.com/saadmsft/VoiceStudio/releases/latest)
-[![Swift CoreAudio](https://img.shields.io/badge/Swift_DSP-CoreAudio_%2B_vDSP-FAAD38?style=for-the-badge&logo=swift&logoColor=black)](Package.swift)
-[![Idle CPU](https://img.shields.io/badge/Idle_CPU-0.4%25_Ultra_Light-2EDB8F?style=for-the-badge)](https://github.com/saadmsft/VoiceStudio)
+[![Homebrew Tap](https://img.shields.io/badge/Homebrew-saadmsft%2Ftap-FBB040?style=for-the-badge&logo=homebrew&logoColor=black)](#-install-in-30-seconds)
+[![Live Audio Demo](https://img.shields.io/badge/🎧_Live_A%2FB_Audio_Demo-Listen_Now-2EDB8F?style=for-the-badge)](https://saadmsft.github.io/VoiceStudio/)
+[![macOS 13+](https://img.shields.io/badge/macOS_13%2B-Universal-141B29?style=for-the-badge&logo=macos&logoColor=white)](https://github.com/saadmsft/VoiceStudio/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-A855F7?style=for-the-badge)](LICENSE)
 
 <p align="center">
@@ -26,9 +26,14 @@
   <b>🎙️ Studio Condenser Sheen</b> • <b>🔥 Subtle Broadcast Depth</b> • <b>⚡ Zero Speaker Hijacking</b> • <b>🎧 Feedback-Free 5s Loop Tweak</b>
 </p>
 
-[**⬇️ Download `.dmg`**](#-install-in-30-seconds) · [**📸 Screenshots**](#-studio-console--menu-bar-tour) · [**🔌 Compatible Apps**](#-works-with-every-macos-app) · [**🎚️ Signal Rack**](#-ascii-broadcast-signal-architecture) · [**🎛️ Presets & Knobs**](#️-built-in-voice-presets)
+[**🎧 Hear Live A/B Demo**](https://saadmsft.github.io/VoiceStudio/) · [**⬇️ Install (`brew` / `.dmg`)**](#-install-in-30-seconds) · [**📸 Screenshots**](#-studio-console--menu-bar-tour) · [**🔌 Compatible Apps**](#-works-with-every-macos-app) · [**🎚️ Signal Rack**](#-ascii-broadcast-signal-architecture)
 
 </div>
+
+---
+
+> [!TIP]
+> **🎧 Hear the Difference Before Installing:** Try the **[Interactive Live Before/After Audio Switcher](https://saadmsft.github.io/VoiceStudio/)** (or watch the **[15-Second Raw vs. Studio FX Video (`demo-ab.mp4`)](https://github.com/saadmsft/VoiceStudio/releases/latest/download/demo-ab.mp4)**) to hear an untreated laptop mic transform through VoiceStudio's 48 kHz CoreAudio engine!
 
 ---
 
@@ -76,14 +81,24 @@ Record a 5-second phrase once, loop it on your open speakers (while automaticall
 
 ## 🚀 Install in 30 Seconds
 
-### ⚡ Option A — One-Line Magic Installer *(Fastest)*
+### 🍺 Option A — Homebrew Cask *(Recommended for Developers)*
+
+```bash
+brew install --cask blackhole-2ch
+brew tap saadmsft/tap
+brew install --cask saadmsft/tap/voicestudio
+xattr -cr /Applications/VoiceStudio.app && open /Applications/VoiceStudio.app
+```
+*(On Homebrew 7+, run `brew trust saadmsft/tap` if prompted before installing.)*
+
+### ⚡ Option B — One-Line Automated Installer
 Checks/installs `BlackHole 2ch`, downloads the latest Universal `.dmg`, installs `VoiceStudio.app` to `/Applications`, clears Gatekeeper quarantine, and launches it:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/saadmsft/VoiceStudio/main/scripts/install.sh | bash
 ```
 
-### 💿 Option B — Drag-and-Drop `.dmg` Installer
+### 💿 Option C — Drag-and-Drop `.dmg` Installer
 
 1. **Install the Virtual Audio Cable** *(one-time prerequisite so any macOS app sees VoiceStudio as a microphone)*:
    ```bash
@@ -242,8 +257,14 @@ swift test
 
 <div align="center">
 
+### ⭐ Enjoying VoiceStudio?
+
+If VoiceStudio makes your Discord, Zoom, Teams, or OBS mic sound like a broadcast studio, **drop a ⭐ Star on GitHub** — it helps other macOS users discover it!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=saadmsft/VoiceStudio&type=Date)](https://star-history.com/#saadmsft/VoiceStudio&Date)
+
 **Built with ❤️ in native Swift & CoreAudio for crisp studio voice everywhere.**  
-MIT License © [Saad Mahmood](https://github.com/saadmsft)
+MIT License © [Saad Mahmood](https://github.com/saadmsft) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
