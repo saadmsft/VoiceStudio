@@ -65,7 +65,7 @@ cat > "$APP_BUNDLE/Contents/Info.plist" <<PLIST
     <key>NSHighResolutionCapable</key>
     <true/>
     <key>NSMicrophoneUsageDescription</key>
-    <string>VoiceStudio processes your microphone audio in real time to deliver crisp, studio-quality voice to Microsoft Teams via BlackHole 2ch.</string>
+    <string>VoiceStudio processes your microphone audio in real time to deliver crisp, studio-quality voice to Discord, Zoom, Microsoft Teams, OBS, and any macOS app via BlackHole 2ch.</string>
 </dict>
 </plist>
 PLIST
@@ -87,23 +87,22 @@ codesign --force --deep --entitlements "$TMP_DIR/entitlements.plist" --sign - "$
 ln -s /Applications "$STAGE_DIR/Applications"
 
 # Include quick setup guide inside the DMG
-cat > "$STAGE_DIR/Quick Start — Teams Setup.txt" <<'TXT'
-VoiceStudio for Microsoft Teams — Quick Setup
-=============================================
+cat > "$STAGE_DIR/Quick Start — Connect Any App.txt" <<'TXT'
+VoiceStudio for macOS — Quick Setup
+===================================
 
 1. Drag VoiceStudio.app into the Applications folder.
 2. Prerequisite (Virtual Audio Cable):
    Install BlackHole 2ch if you don't already have it:
      brew install --cask blackhole-2ch
-3. First Launch (Unnotarized Open-Source App):
+3. First Launch (Open-Source Ad-Hoc Signed App):
    If macOS Gatekeeper blocks launch after browser download, run in Terminal:
      xattr -cr /Applications/VoiceStudio.app
    Then open VoiceStudio from Applications or Spotlight, and grant Microphone access.
-4. Connect to Microsoft Teams:
-   Open Microsoft Teams -> Settings -> Devices:
-   - Microphone: BlackHole 2ch
-   - Speaker: Your normal Headphones or Speakers (never BlackHole 2ch)
-   - Tip: Set Teams "Noise suppression" to Low or Off to preserve warm bass & 9.5 kHz air.
+4. Connect to Discord, Zoom, Teams, Slack, Meet, OBS, FaceTime & DAWs:
+   - Set the app's Microphone / Input Device to: BlackHole 2ch
+   - Keep the app's Speaker / Output Device on your normal Headphones or Speakers (never BlackHole 2ch)
+   - Tip: Disable or lower built-in app noise suppression (e.g. Discord Krisp, Zoom Original Sound ON, Teams Low/Off) to preserve full 125 Hz studio warmth and 9.5 kHz condenser air!
 TXT
 
 echo "==> Creating compressed DMG installer: $DMG_PATH..."

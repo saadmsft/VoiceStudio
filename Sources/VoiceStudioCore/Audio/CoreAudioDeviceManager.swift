@@ -46,7 +46,7 @@ public final class CoreAudioDeviceManager: @unchecked Sendable {
     }
 
     public func inputDevices() -> [AudioDeviceInfo] {
-        allDevices().filter { $0.inputChannels > 0 && !$0.isBlackHole && !$0.isTeamsVirtualDevice }
+        allDevices().filter { $0.inputChannels > 0 && !$0.isBlackHole && !$0.isAppLoopbackVirtualDevice }
     }
 
     public func outputDevices() -> [AudioDeviceInfo] {
@@ -54,7 +54,7 @@ public final class CoreAudioDeviceManager: @unchecked Sendable {
     }
 
     public func monitorDevices() -> [AudioDeviceInfo] {
-        allDevices().filter { $0.outputChannels > 0 && !$0.isBlackHole && !$0.isTeamsVirtualDevice }
+        allDevices().filter { $0.outputChannels > 0 && !$0.isBlackHole && !$0.isAppLoopbackVirtualDevice }
     }
 
     public func systemDefaultInputDeviceID() -> AudioDeviceID? {
@@ -116,14 +116,14 @@ public final class CoreAudioDeviceManager: @unchecked Sendable {
         return inputs.first
     }
 
-    /// Automatically selects BlackHole 2ch (or other virtual audio cable) for Microsoft Teams input.
-    public func preferredTeamsVirtualOutput() -> AudioDeviceInfo? {
+    /// Automatically selects BlackHole 2ch (or other virtual audio cable) as virtual mic output for Discord, Zoom, Teams, OBS, etc.
+    public func preferredVirtualMicOutput() -> AudioDeviceInfo? {
         let outputs = outputDevices()
         if let blackHole = outputs.first(where: { $0.isBlackHole }) {
             return blackHole
         }
         if let virtualCable = outputs.first(where: {
-            $0.isVirtual && !$0.isTeamsVirtualDevice
+            $0.isVirtual && !$0.isAppLoopbackVirtualDevice
         }) {
             return virtualCable
         }

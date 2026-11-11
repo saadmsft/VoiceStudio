@@ -57,7 +57,7 @@ cat > "$APP_BUNDLE/Contents/Info.plist" <<'PLIST'
     <key>NSHighResolutionCapable</key>
     <true/>
     <key>NSMicrophoneUsageDescription</key>
-    <string>VoiceStudio processes your microphone audio in real time to deliver crisp, studio-quality voice to Microsoft Teams via BlackHole 2ch.</string>
+    <string>VoiceStudio processes your microphone audio in real time to deliver crisp, studio-quality voice to Discord, Zoom, Microsoft Teams, OBS, and any macOS app via BlackHole 2ch.</string>
 </dict>
 </plist>
 PLIST

@@ -32,8 +32,8 @@ struct MainStudioView: View {
         .frame(minWidth: 900, minHeight: 620)
         .background(StudioTheme.bgDeep)
         .preferredColorScheme(.dark)
-        .sheet(isPresented: $vm.showTeamsGuide) {
-            TeamsSetupSheet(vm: vm)
+        .sheet(isPresented: $vm.showAppSetupGuide) {
+            AppSetupSheet(vm: vm)
         }
     }
 
@@ -62,7 +62,7 @@ struct MainStudioView: View {
             .buttonStyle(.plain)
 
             VStack(alignment: .leading, spacing: 1) {
-                Text("VoiceStudio for Microsoft Teams")
+                Text("VoiceStudio — Broadcast Voice Rack")
                     .font(.system(size: 15.5, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                 Text(vm.statusMessage)
@@ -100,11 +100,11 @@ struct MainStudioView: View {
             }
             .buttonStyle(.plain)
 
-            // Teams Setup Guide button
+            // App Setup Guide button
             Button {
-                vm.showTeamsGuide = true
+                vm.showAppSetupGuide = true
             } label: {
-                Label("Teams Setup", systemImage: "questionmark.circle")
+                Label("Connect Apps", systemImage: "questionmark.circle")
                     .font(.system(size: 11.5, weight: .semibold))
                     .padding(.horizontal, 11)
                     .padding(.vertical, 6)
@@ -164,7 +164,7 @@ struct MainStudioView: View {
 
                 devicePickerBox(
                     icon: "cable.connector",
-                    label: "TEAMS VIRTUAL MIC OUTPUT",
+                    label: "VIRTUAL MIC OUTPUT (FOR APPS)",
                     selection: Binding(
                         get: { vm.selectedOutputID },
                         set: { vm.userChangedOutputDevice($0) }

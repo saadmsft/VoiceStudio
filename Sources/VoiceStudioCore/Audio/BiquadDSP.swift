@@ -106,7 +106,7 @@ public struct SubHarmonicExciter: Sendable {
 }
 
 /// Real-time Split-Band Dynamic De-Esser centered around vocal sibilance (6.5 kHz).
-/// Keeps crispness/air silky without harsh "S" and "SH" spikes on Microsoft Teams.
+/// Keeps crispness/air silky without harsh "S" and "SH" spikes on voice calls & streams.
 public struct DynamicDeEsser: Sendable {
     private var sibilanceBP = BiquadFilter()
     private var sibEnv: Float = 0.0

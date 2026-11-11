@@ -81,25 +81,28 @@
   </g>
 
   <!-- Title & Tagline -->
-  <text x="278" y="156" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="-1">VoiceStudio</text>
-  <text x="602" y="156" fill="#38C7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600">for Microsoft Teams</text>
+  <text x="278" y="150" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="-1">VoiceStudio</text>
+  <text x="602" y="150" fill="#38C7FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600">Broadcast Voice Rack</text>
 
-  <text x="278" y="198" fill="#B2BDCE" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="19.5" font-weight="500">Turn any Mac mic into a crisp, warm, subtly deeper broadcast studio voice.</text>
+  <text x="278" y="188" fill="#B2BDCE" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18.5" font-weight="500">Crisp, warm, studio-grade voice for Discord, Zoom, Teams, Slack, Meet &amp; OBS.</text>
 
   <!-- Feature Pills -->
-  <g transform="translate(278, 226)" font-family="-apple-system, BlinkMacSystemFont, 'SF Mono', Menlo, monospace" font-size="12.5" font-weight="600">
-    <rect x="0" y="0" width="154" height="34" rx="9" fill="#182032" stroke="#FAAD38" stroke-opacity="0.45"/>
-    <text x="14" y="22" fill="#FFC45C">🎙️ -0.65 st Depth</text>
+  <g transform="translate(278, 212)" font-family="-apple-system, BlinkMacSystemFont, 'SF Mono', Menlo, monospace" font-size="12.5" font-weight="600">
+    <rect x="0" y="0" width="154" height="32" rx="9" fill="#182032" stroke="#FAAD38" stroke-opacity="0.45"/>
+    <text x="14" y="21" fill="#FFC45C">🎙️ -0.65 st Depth</text>
 
-    <rect x="166" y="0" width="170" height="34" rx="9" fill="#182032" stroke="#FAAD38" stroke-opacity="0.45"/>
-    <text x="180" y="22" fill="#FFC45C">🔥 Sub-Bass Warmth</text>
+    <rect x="166" y="0" width="170" height="32" rx="9" fill="#182032" stroke="#FAAD38" stroke-opacity="0.45"/>
+    <text x="180" y="21" fill="#FFC45C">🔥 Sub-Bass Warmth</text>
 
-    <rect x="348" y="0" width="166" height="34" rx="9" fill="#182032" stroke="#38C7FA" stroke-opacity="0.45"/>
-    <text x="362" y="22" fill="#6DDDFF">✨ 9.5k Studio Air</text>
+    <rect x="348" y="0" width="166" height="32" rx="9" fill="#182032" stroke="#38C7FA" stroke-opacity="0.45"/>
+    <text x="362" y="21" fill="#6DDDFF">✨ 9.5k Studio Air</text>
 
-    <rect x="526" y="0" width="176" height="34" rx="9" fill="#182032" stroke="#2EDB8F" stroke-opacity="0.45"/>
-    <text x="540" y="22" fill="#58F0AA">⚡ BlackHole Ready</text>
+    <rect x="526" y="0" width="176" height="32" rx="9" fill="#182032" stroke="#2EDB8F" stroke-opacity="0.45"/>
+    <text x="540" y="21" fill="#58F0AA">⚡ Universal Virtual Mic</text>
   </g>
+
+  <!-- Compatible Apps Strip -->
+  <text x="278" y="272" fill="#7D8CA3" font-family="-apple-system, BlinkMacSystemFont, 'SF Mono', Menlo, monospace" font-size="12" font-weight="600" letter-spacing="0.4">WORKS WITH:  DISCORD • ZOOM • TEAMS • SLACK • GOOGLE MEET • OBS • TWITCH • FACETIME • DAWS</text>
 
   <!-- Decorative Right-Side Broadcast VU Meter Cluster -->
   <g transform="translate(1038, 66)">

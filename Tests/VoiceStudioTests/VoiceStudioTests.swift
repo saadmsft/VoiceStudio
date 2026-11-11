@@ -29,7 +29,7 @@ final class VoiceStudioTests: XCTestCase {
     }
 
     func testVoiceProfileFrequencyResponseCurveReflectsCrispAndDeep() {
-        let profile = VoiceProfile.teamsCrispAndDeep
+        let profile = VoiceProfile.studioCrispAndDeep
 
         // Sub-rumble at 30 Hz should be rolled off below 0 dB by high-pass filter
         let subRumble = profile.magnitudeResponseDb(at: 30.0)
@@ -52,7 +52,7 @@ final class VoiceStudioTests: XCTestCase {
 
     func testOfflineDSPEngineProcessesSignalAndEnforcesBrickwallCeiling() {
         let engine = VoiceStudioEngine()
-        var loudProfile = VoiceProfile.teamsCrispAndDeep
+        var loudProfile = VoiceProfile.studioCrispAndDeep
         loudProfile.outputGainDb = 9.0
         engine.applyProfile(loudProfile)
 
@@ -79,7 +79,7 @@ final class VoiceStudioTests: XCTestCase {
         let inputs = manager.inputDevices()
         for mic in inputs {
             XCTAssertFalse(mic.isBlackHole, "BlackHole must never appear as mic input to avoid feedback loop")
-            XCTAssertFalse(mic.isTeamsVirtualDevice, "Teams virtual device must be excluded from raw mic inputs")
+            XCTAssertFalse(mic.isAppLoopbackVirtualDevice, "Virtual conference/stream loopback devices must be excluded from raw mic inputs")
         }
     }
 }

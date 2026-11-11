@@ -46,7 +46,7 @@ struct VoiceStudioApp: App {
     }
 
     var body: some Scene {
-        Window("VoiceStudio — Teams Broadcast Rack", id: "studio-main") {
+        Window("VoiceStudio — macOS Broadcast Voice Rack", id: "studio-main") {
             MainStudioView(vm: viewModel)
                 .background(StudioWindowConfigurator())
         }

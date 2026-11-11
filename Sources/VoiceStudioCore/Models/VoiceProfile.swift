@@ -116,9 +116,9 @@ public struct VoiceProfile: Codable, Equatable, Identifiable, Sendable {
 
     // MARK: - Built-in Studio Presets
 
-    public static let teamsCrispAndDeep = VoiceProfile(
-        id: "builtin-teams-crisp-deep",
-        name: "Teams Crisp & Deep",
+    public static let studioCrispAndDeep = VoiceProfile(
+        id: "builtin-studio-crisp-deep",
+        name: "Studio Crisp & Deep",
         subtitle: "Crisp condenser sheen + subtle authoritative depth",
         isBuiltIn: true,
         pitchCents: -65,
@@ -217,7 +217,7 @@ public struct VoiceProfile: Codable, Equatable, Identifiable, Sendable {
     )
 
     public static let builtInPresets: [VoiceProfile] = [
-        .teamsCrispAndDeep,
+        .studioCrispAndDeep,
         .podcastBroadcast,
         .subtleNaturalPolish,
         .executiveBaritone,

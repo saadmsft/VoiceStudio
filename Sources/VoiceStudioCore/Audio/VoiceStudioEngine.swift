@@ -71,7 +71,7 @@ public final class VoiceStudioEngine: @unchecked Sendable {
     public private(set) var activeInputDeviceID: AudioDeviceID?
     public private(set) var activeOutputDeviceID: AudioDeviceID?
     public private(set) var activeMonitorDeviceID: AudioDeviceID?
-    public private(set) var currentProfile: VoiceProfile = .teamsCrispAndDeep
+    public private(set) var currentProfile: VoiceProfile = .studioCrispAndDeep
 
     public init() {
         rtStatePtr = UnsafeMutablePointer<RealtimeDSPState>.allocate(capacity: 1)
@@ -94,7 +94,7 @@ public final class VoiceStudioEngine: @unchecked Sendable {
         monitorStereoScratchPtr.initialize(repeating: 0.0, count: maxFrames)
 
         setupRealtimeDSPEngine()
-        applyProfile(.teamsCrispAndDeep)
+        applyProfile(.studioCrispAndDeep)
     }
 
     deinit {
@@ -811,7 +811,7 @@ public final class VoiceStudioEngine: @unchecked Sendable {
                 if a > peak { peak = a }
 
                 if isLoopingCheck {
-                    // Silence BlackHole Teams output while listening to local voice check loop
+                    // Silence BlackHole virtual mic output while listening to local voice check loop
                     outL?[i] = 0.0
                     outR?[i] = 0.0
                 } else {
@@ -859,7 +859,7 @@ public final class VoiceStudioEngine: @unchecked Sendable {
             if a > peak { peak = a }
 
             if isLoopingCheck && activeOutputDeviceID != activeMonitorDeviceID {
-                // Keep Teams virtual mic quiet while user tweaks recorded loop locally
+                // Keep virtual mic quiet while user tweaks recorded loop locally
                 outL?[i] = 0.0
                 outR?[i] = 0.0
             } else {

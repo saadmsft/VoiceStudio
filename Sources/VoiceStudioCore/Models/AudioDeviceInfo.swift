@@ -36,16 +36,19 @@ public struct AudioDeviceInfo: Identifiable, Equatable, Hashable, Sendable {
         uid.localizedCaseInsensitiveContains("BlackHole")
     }
 
-    public var isTeamsVirtualDevice: Bool {
+    public var isAppLoopbackVirtualDevice: Bool {
         name.localizedCaseInsensitiveContains("Microsoft Teams") ||
-        uid.localizedCaseInsensitiveContains("MSTeams")
+        uid.localizedCaseInsensitiveContains("MSTeams") ||
+        name.localizedCaseInsensitiveContains("ZoomAudioDevice") ||
+        uid.localizedCaseInsensitiveContains("ZoomAudio") ||
+        name.localizedCaseInsensitiveContains("Steam Streaming")
     }
 
     public var isExternalPhysicalMic: Bool {
         inputChannels > 0 &&
         !isVirtual &&
         !isBlackHole &&
-        !isTeamsVirtualDevice &&
+        !isAppLoopbackVirtualDevice &&
         !name.localizedCaseInsensitiveContains("MacBook") &&
         !name.localizedCaseInsensitiveContains("iPhone")
     }

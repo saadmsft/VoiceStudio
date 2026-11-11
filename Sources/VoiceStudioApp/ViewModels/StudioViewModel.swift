@@ -54,7 +54,7 @@ public final class StudioViewModel: ObservableObject {
     }
 
     // Profiles & Presets
-    @Published public var profile: VoiceProfile = .teamsCrispAndDeep {
+    @Published public var profile: VoiceProfile = .studioCrispAndDeep {
         didSet {
             engine.applyProfile(profile)
             persistCurrentProfile()
@@ -67,7 +67,7 @@ public final class StudioViewModel: ObservableObject {
     @Published public var micPermissionDenied: Bool = false
     @Published public var statusMessage: String = "Initializing audio studio…"
     @Published public var errorBanner: String? = nil
-    @Published public var showTeamsGuide: Bool = false
+    @Published public var showAppSetupGuide: Bool = false
 
     private let engine = VoiceStudioEngine()
     private let deviceManager = CoreAudioDeviceManager.shared
@@ -100,8 +100,8 @@ public final class StudioViewModel: ObservableObject {
             selectedMonitorID = 301
             isEngineRunning = true
             micPermissionGranted = true
-            statusMessage = "ON AIR • Routing to BlackHole 2ch for Teams"
-            profile = .teamsCrispAndDeep
+            statusMessage = "ON AIR • Routing to BlackHole 2ch (Discord • Zoom • Teams • OBS)"
+            profile = .studioCrispAndDeep
             meters.inputMeterDb = -13.5
             meters.gainReductionDb = 4.2
             meters.outputMeterDb = -6.8
@@ -205,7 +205,7 @@ public final class StudioViewModel: ObservableObject {
             // keep current
         } else if let uid = savedOutUID, let match = newOutputs.first(where: { $0.uid == uid }) {
             selectedOutputID = match.id
-        } else if let pref = deviceManager.preferredTeamsVirtualOutput() {
+        } else if let pref = deviceManager.preferredVirtualMicOutput() {
             selectedOutputID = pref.id
         }
 
@@ -269,7 +269,7 @@ public final class StudioViewModel: ObservableObject {
             isEngineRunning = true
             errorBanner = nil
             statusMessage = isBlackHoleSelected
-                ? "ON AIR • Routing to BlackHole 2ch for Teams"
+                ? "ON AIR • Routing to BlackHole 2ch (Discord • Zoom • Teams • OBS)"
                 : "ON AIR • Routing to \(selectedOutputName)"
         } catch {
             isEngineRunning = false
@@ -345,7 +345,7 @@ public final class StudioViewModel: ObservableObject {
         if let builtIn = VoiceProfile.builtInPresets.first(where: { $0.id == profile.id }) {
             profile = builtIn
         } else {
-            profile = .teamsCrispAndDeep
+            profile = .studioCrispAndDeep
         }
     }
 
@@ -367,7 +367,7 @@ public final class StudioViewModel: ObservableObject {
         customPresets.removeAll { $0.id == preset.id }
         persistCustomPresets()
         if profile.id == preset.id {
-            profile = .teamsCrispAndDeep
+            profile = .studioCrispAndDeep
         }
     }
 
@@ -377,7 +377,11 @@ public final class StudioViewModel: ObservableObject {
             customPresets = decoded
         }
         if let data = UserDefaults.standard.data(forKey: profileStorageKey),
-           let saved = try? JSONDecoder().decode(VoiceProfile.self, from: data) {
+           var saved = try? JSONDecoder().decode(VoiceProfile.self, from: data) {
+            if saved.id == "builtin-teams-crisp-deep" {
+                saved.id = "builtin-studio-crisp-deep"
+                saved.name = "Studio Crisp & Deep"
+            }
             profile = saved
         }
     }

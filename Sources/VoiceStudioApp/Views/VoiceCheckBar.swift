@@ -136,7 +136,7 @@ struct VoiceCheckBar: View {
             return "Speak normally for a few seconds…"
         }
         if vm.isPlayingCheckLoop {
-            return "Playing on speakers (Teams muted) — drag sliders above to tweak live!"
+            return "Playing on speakers (Virtual Mic muted) — drag sliders above to tweak live!"
         }
         return "Record once & loop on speakers to dial in sliders with zero feedback"
     }

@@ -14,10 +14,10 @@ enum ScreenshotExporter {
         NSApplication.shared.setActivationPolicy(.prohibited)
         try? FileManager.default.createDirectory(atPath: outDir, withIntermediateDirectories: true)
 
-        // 1. Main Studio Console ("Teams Crisp & Deep")
+        // 1. Main Studio Console ("Studio Crisp & Deep")
         let vm1 = StudioViewModel(screenshotPreviewMode: true)
         renderFramedScreenshot(
-            title: "VoiceStudio — Teams Broadcast Rack",
+            title: "VoiceStudio — macOS Broadcast Voice Rack",
             showTrafficLights: true,
             contentSize: CGSize(width: 980, height: 760),
             to: "\(outDir)/screenshot-main-rack.png"
